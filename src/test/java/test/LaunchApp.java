@@ -28,7 +28,7 @@ public class LaunchApp {
             appiumDriver = new AndroidDriver<MobileElement>(appiumServer, desiredCaps);
 
             // DEBUG PURPOSE ONLY
-            Thread.sleep(3000);
+//            Thread.sleep(3000);
         } catch (Exception e) {
             exception = e;
         }
