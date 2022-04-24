@@ -1,4 +1,4 @@
-package test;
+package test.lesson16;
 
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
@@ -19,7 +19,9 @@ public class LaunchApp {
             DesiredCapabilities desiredCaps = new DesiredCapabilities();
             desiredCaps.setCapability("platformName", "Android");
             desiredCaps.setCapability("automationName", "uiautomator2");
-            desiredCaps.setCapability("udid", "emulator-5554");
+//            desiredCaps.setCapability("udid", "emulator-5554");
+            desiredCaps.setCapability("udid", "192.168.1.176:5555");
+//            desiredCaps.setCapability("udid", "4200e485aafbb383");
             desiredCaps.setCapability("appPackage", "com.wdiodemoapp");
             desiredCaps.setCapability("appActivity", "com.wdiodemoapp.MainActivity");
 

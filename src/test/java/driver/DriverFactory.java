@@ -28,6 +28,7 @@ public class DriverFactory implements MobileCapabilityTypeEx{
             desiredCaps.setCapability(PLATFORM_NAME, "Android");
             desiredCaps.setCapability(AUTOMATION_NAME, "uiautomator2");
             desiredCaps.setCapability(UDID, "emulator-5554");
+//            desiredCaps.setCapability(UDID, "192.168.1.176:5555");
             desiredCaps.setCapability(APP_PACKAGE, "com.wdiodemoapp");
             desiredCaps.setCapability(APP_ACTIVITY, "com.wdiodemoapp.MainActivity");
 
@@ -51,7 +52,7 @@ public class DriverFactory implements MobileCapabilityTypeEx{
         }
 
         // Add IMPLICIT WAIT HERE
-        appiumDriver.manage().timeouts().implicitlyWait(1L, TimeUnit.SECONDS);
+        appiumDriver.manage().timeouts().implicitlyWait(5L, TimeUnit.SECONDS);
 
         return appiumDriver;
     }
