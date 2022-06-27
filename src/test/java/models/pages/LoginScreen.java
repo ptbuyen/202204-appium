@@ -4,6 +4,7 @@ import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import models.component.BottomNavComponent;
 import models.component.LoginFormComponent;
+import models.component.LoginSuccessDialogComponent;
 
 public class LoginScreen {
 
@@ -13,8 +14,12 @@ public class LoginScreen {
         this.appiumDriver = appiumDriver;
     }
 
-    public LoginFormComponent loginFormComponent () {
+    public LoginFormComponent loginFormComponent() {
         return new LoginFormComponent(appiumDriver);
+    }
+
+    public LoginSuccessDialogComponent loginSuccessDialogComponent() {
+        return new LoginSuccessDialogComponent(appiumDriver);
     }
 
     public BottomNavComponent bottomNavComponent() {
