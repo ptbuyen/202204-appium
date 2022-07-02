@@ -8,6 +8,8 @@ import models.pages.LoginScreen;
 import org.apache.commons.validator.routines.EmailValidator;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
+import org.testng.asserts.SoftAssert;
 import test_flows.BaseFlow;
 
 public class LoginFlow extends BaseFlow {
@@ -85,19 +87,31 @@ public class LoginFlow extends BaseFlow {
 
     private void verifyIncorrectEmailStr(LoginFormComponent loginFormComponent) {
         String actualInvalidEmailStr = loginFormComponent.getInvalidEmailStr();
-        String expectedInvalidEmailStr = "Please enter a valid email address";
+        String expectedInvalidEmailStr = "Please enter a valid email address.";
 
         // Verification
-        System.out.println("actualInvalidEmailStr: " + actualInvalidEmailStr);
-        System.out.println("expectedInvalidEmailStr: " + expectedInvalidEmailStr);
+        SoftAssert softAssert = new SoftAssert();
+        softAssert.assertEquals(actualInvalidEmailStr, expectedInvalidEmailStr,
+                "[ERR] Invalid email format str incorrect");
+
+        System.out.println("-------------->>>>>>>>>>>>After asserting");
+        softAssert.assertTrue(false, "[ERR] True != False");
+
+        softAssert.assertAll();
     }
 
     private void verifyIncorrectPasswordStr(LoginFormComponent loginFormComponent) {
         String actualInvalidPasswordStr = loginFormComponent.getInvalidPasswordStr();
-        String expectedInvalidPasswordStr = "Please enter at least 8 characters";
+        String expectedInvalidPasswordStr = "Please enter at least 8 characters.";
 
         // Verification
-        System.out.println("actualInvalidPasswordStr: " + actualInvalidPasswordStr);
-        System.out.println("expectedInvalidPasswordStr: " + expectedInvalidPasswordStr);
+        SoftAssert softAssert = new SoftAssert();
+        softAssert.assertEquals(actualInvalidPasswordStr, expectedInvalidPasswordStr,
+                "[ERR] Invalid password format str incorrect");
+
+        System.out.println("-------------->>>>>>>>>>>>After asserting");
+        softAssert.assertTrue(false, "[ERR] True != False");
+
+        softAssert.assertAll();
     }
 }
