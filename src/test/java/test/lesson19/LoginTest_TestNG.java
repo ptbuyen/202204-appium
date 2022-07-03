@@ -6,6 +6,7 @@ import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
+import test_data.DataObjectBuilder;
 import test_data.models.LoginCredData;
 import test_flows.authentication.LoginFlow;
 
@@ -45,13 +46,7 @@ public class LoginTest_TestNG {
 
     @DataProvider
     public LoginCredData[] loginCredData(){
-        // Build support method to convert form JSON -> Array of Object
-
-        // Return an array of objects
-
-        LoginCredData loginCredData01 = new LoginCredData("teo@", "12345678");
-        LoginCredData loginCredData02 = new LoginCredData("teo@sth.com", "1234567");
-        LoginCredData loginCredData03 = new LoginCredData("teo@xyz.com", "12345678");
-        return new LoginCredData[]{loginCredData01, loginCredData02, loginCredData03};
+        String filePath = "/src/test/java/test_data/authen/LoginCreds.json";
+        return DataObjectBuilder.buildDataObject(filePath, LoginCredData[].class);
     }
 }

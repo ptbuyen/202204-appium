@@ -72,7 +72,7 @@ public class LoginFlow extends BaseFlow {
     //*[@text='Please enter a valid email address']
     //[contains(@text,"Please enter at least 8 characters")]
     private void verifyCorrectLoginCreds(LoginSuccessDialogComponent loginSuccessDialogComponent) {
-        // TODO: Homework
+        // TODO: Homework;
         WebDriverWait wait = new WebDriverWait(appiumDriver, 5L);
         wait.until(ExpectedConditions.visibilityOf(loginSuccessDialogComponent.loginSuccessTxtElem()));
 
@@ -80,9 +80,12 @@ public class LoginFlow extends BaseFlow {
         String expectedLoginSuccessTxtStr = "You are logged in!";
 
         // Verification
-        System.out.println("actualLoginSuccessTxtStr: " + actualLoginSuccessTxtStr);
-        System.out.println("expectedLoginSuccessTxtStr: " + expectedLoginSuccessTxtStr);
+        SoftAssert softAssert = new SoftAssert();
+        softAssert.assertEquals(actualLoginSuccessTxtStr, expectedLoginSuccessTxtStr,
+                "[ERR] Login success str incorrect");
+        softAssert.assertAll();
 
+        loginSuccessDialogComponent.clickOnOkBtn();
     }
 
     private void verifyIncorrectEmailStr(LoginFormComponent loginFormComponent) {

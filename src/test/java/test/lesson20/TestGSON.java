@@ -15,8 +15,24 @@ public class TestGSON {
         System.out.println(gson.toJson(loginCredData));
 
         // Convert from JSON to Object
-        String loginCredJSONData = "{\"email\":\"Teo\",\"password\":\"teo@sth.com\"}";
-        LoginCredData convertedFromJson = gson.fromJson(loginCredJSONData, LoginCredData.class);
-        System.out.println(convertedFromJson);
+//        String loginCredJSONData = "{\"email\":\"Teo\",\"password\":\"teo@sth.com\"}";
+        String loginCredJSONData = "[\n" +
+                "  {\n" +
+                "    \"email\": \"teo@sth.com\",\n" +
+                "    \"password\": \"12345678\"\n" +
+                "  },\n" +
+                "  {\n" +
+                "    \"email\": \"ti@sth.com\",\n" +
+                "    \"password\": \"87654321\"\n" +
+                "  },\n" +
+                "  {\n" +
+                "    \"email\": \"tun@sth.com\",\n" +
+                "    \"password\": \"12345678\"\n" +
+                "  }\n" +
+                "]";
+        LoginCredData[] convertedFromJsons = gson.fromJson(loginCredJSONData, LoginCredData[].class);
+        for (LoginCredData credData : convertedFromJsons) {
+            System.out.println(credData);
+        }
     }
 }

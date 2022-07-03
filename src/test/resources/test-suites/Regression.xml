@@ -3,7 +3,13 @@
 <suite name="Regression">
     <test name="Authentication" >
         <classes>
-            <class name="test.lesson19.LoginTest_TestNG" />
+            <class name="test.authen.LoginTest" />
+            <class name="test.form.FormTest" />
+        </classes>
+    </test>
+    <test name="Authentication_" >
+        <classes>
+            <class name="test.form.FormTest" />
         </classes>
     </test>
 </suite>
