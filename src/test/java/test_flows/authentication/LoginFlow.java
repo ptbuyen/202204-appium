@@ -90,30 +90,30 @@ public class LoginFlow extends BaseFlow {
 
     private void verifyIncorrectEmailStr(LoginFormComponent loginFormComponent) {
         String actualInvalidEmailStr = loginFormComponent.getInvalidEmailStr();
-        String expectedInvalidEmailStr = "Please enter a valid email address.";
+        String expectedInvalidEmailStr = "Please enter a valid email address";
 
         // Verification
         SoftAssert softAssert = new SoftAssert();
         softAssert.assertEquals(actualInvalidEmailStr, expectedInvalidEmailStr,
                 "[ERR] Invalid email format str incorrect");
 
-        System.out.println("-------------->>>>>>>>>>>>After asserting");
-        softAssert.assertTrue(false, "[ERR] True != False");
+//        System.out.println("-------------->>>>>>>>>>>>After asserting");
+//        softAssert.assertTrue(false, "[ERR] True != False");
 
         softAssert.assertAll();
     }
 
     private void verifyIncorrectPasswordStr(LoginFormComponent loginFormComponent) {
         String actualInvalidPasswordStr = loginFormComponent.getInvalidPasswordStr();
-        String expectedInvalidPasswordStr = "Please enter at least 8 characters.";
+        String expectedInvalidPasswordStr = "Please enter at least 8 characters";
 
         // Verification
         SoftAssert softAssert = new SoftAssert();
         softAssert.assertEquals(actualInvalidPasswordStr, expectedInvalidPasswordStr,
                 "[ERR] Invalid password format str incorrect");
 
-        System.out.println("-------------->>>>>>>>>>>>After asserting");
-        softAssert.assertTrue(false, "[ERR] True != False");
+//        System.out.println("-------------->>>>>>>>>>>>After asserting");
+//        softAssert.assertTrue(false, "[ERR] True != False");
 
         softAssert.assertAll();
     }
