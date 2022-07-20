@@ -19,3 +19,13 @@ appium -p 6000 --nodeconfig node_6000_config.json
 ```
 appium -p 7000 --nodeconfig node_7000_config.json
 ```
+
+## Start Node 03
+```
+appium -p 8000 --nodeconfig node_8000_config.json
+```
+
+## Start Node 04
+```
+appium -p 9000 --nodeconfig node_9000_config.json
+```

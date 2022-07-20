@@ -11,6 +11,7 @@ import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Optional;
 import org.testng.annotations.Parameters;
 
 import java.io.File;
@@ -27,14 +28,18 @@ public class BaseTest {
 
     private String udid;
     private String systemPort;
+    private String platformName;
+    private String platformVersion;
 
     @BeforeTest(description = "Init appium session")
-    @Parameters({"udid", "systemPort"})
-    public void initAppiumSession(String udid, String systemPort) {
+    @Parameters({"udid", "systemPort", "platformName", "platformVersion"})
+    public void initAppiumSession(String udid, String systemPort, String platformName, @Optional("platformVersion") String platformVersion) {
         System.out.println("I'm running before test at: " + new GregorianCalendar().getTime().toString());
         System.out.println(udid + " || " + systemPort);
         this.udid = udid;
         this.systemPort = systemPort;
+        this.platformName = platformName;
+        this.platformVersion = platformVersion;
         driverThread = ThreadLocal.withInitial(()->{
             DriverFactory driverThread = new DriverFactory();
             driverThreadPool.add(driverThread);
@@ -48,7 +53,7 @@ public class BaseTest {
     }
 
     protected AppiumDriver<MobileElement> getDriver() {
-        return driverThread.get().getDriver(Platforms.android, udid, systemPort);
+        return driverThread.get().getDriver(Platforms.valueOf(platformName), udid, systemPort, platformVersion);
     }
 
     @AfterMethod(description = "Capture screenshot")
@@ -71,7 +76,7 @@ public class BaseTest {
             String fileLocation = System.getProperty("user.dir") + "/screenshots/" + testMethodName + "-" + dateTaken + ".png";
 
             // 4. Save
-            File screenshot = driverThread.get().getDriver(Platforms.android, udid, systemPort).getScreenshotAs(OutputType.FILE);
+            File screenshot = driverThread.get().getDriver(Platforms.valueOf(platformName), udid, systemPort, platformVersion).getScreenshotAs(OutputType.FILE);
 
             try {
                 FileUtils.copyFile(screenshot, new File(fileLocation));
