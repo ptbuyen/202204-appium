@@ -20,7 +20,7 @@ public class LaunchApp {
             desiredCaps.setCapability("platformName", "Android");
             desiredCaps.setCapability("automationName", "uiautomator2");
 //            desiredCaps.setCapability("udid", "emulator-5554");
-            desiredCaps.setCapability("udid", "192.168.1.5:5555");
+            desiredCaps.setCapability("udid", "10.1.1.92:5555");
 //            desiredCaps.setCapability("udid", "4200e485aafbb383");
             desiredCaps.setCapability("appPackage", "com.wdiodemoapp");
             desiredCaps.setCapability("appActivity", "com.wdiodemoapp.MainActivity");

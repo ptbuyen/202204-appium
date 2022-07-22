@@ -76,7 +76,7 @@ public class DriverFactory implements MobileCapabilityTypeEx{
 
                 // Init appium session
 //                URL appiumServer = new URL("http://localhost:4723/wd/hub");
-                URL targetServer = new URL("http://192.168.1.5:4444/wd/hub");
+                URL targetServer = new URL("http://10.1.1.92:4444/wd/hub");
 
                 switch (platform) {
                     case android:
@@ -89,9 +89,9 @@ public class DriverFactory implements MobileCapabilityTypeEx{
                         break;
                     case ios:
                         desiredCaps.setCapability(AUTOMATION_NAME, "XCUITest");
-                        desiredCaps.setCapability(DEVICE_NAME, udid); //iPhone 8
+                        desiredCaps.setCapability(DEVICE_NAME, udid); //iPhone 12
                         desiredCaps.setCapability(PLATFORM_VERSION, platformVersion); // 15.0 NOT 15.1.2
-                        desiredCaps.setCapability(BUNDLE_ID, "org.wdioNativeApp");
+                        desiredCaps.setCapability(BUNDLE_ID, "org.wdioNativeDemoApp");
                         desiredCaps.setCapability(WDA_LOCAL_PORT, Integer.parseInt(systemPort));
                         appiumDriver = new IOSDriver<>(targetServer, desiredCaps);
                 }
