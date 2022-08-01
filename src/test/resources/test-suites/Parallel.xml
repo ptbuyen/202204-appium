@@ -10,23 +10,23 @@
             <class name="test.form.FormTest"/>
         </classes>
     </test>
-    <test name="Test_02" parallel="tests" thread-count="10">
-        <parameter name="platformName" value="android"/>
-        <parameter name="udid" value="emulator-5556"/>
-        <parameter name="systemPort" value="8400"/>
-        <classes>
-            <class name="test.authen.LoginTest"/>
-        </classes>
-    </test>
-    <test name="Test_03" parallel="tests" thread-count="10">
-        <parameter name="platformName" value="ios"/>
-        <parameter name="udid" value="iPhone 12"/>
-        <parameter name="platformVersion" value="15.2"/>
-        <parameter name="systemPort" value="8561"/>
-        <classes>
-            <class name="test.authen.LoginTest"/>
-        </classes>
-    </test>
+<!--    <test name="Test_02" parallel="tests" thread-count="10">-->
+<!--        <parameter name="platformName" value="android"/>-->
+<!--        <parameter name="udid" value="emulator-5556"/>-->
+<!--        <parameter name="systemPort" value="8400"/>-->
+<!--        <classes>-->
+<!--            <class name="test.authen.LoginTest"/>-->
+<!--        </classes>-->
+<!--    </test>-->
+<!--    <test name="Test_03" parallel="tests" thread-count="10">-->
+<!--        <parameter name="platformName" value="ios"/>-->
+<!--        <parameter name="udid" value="iPhone 12"/>-->
+<!--        <parameter name="platformVersion" value="15.2"/>-->
+<!--        <parameter name="systemPort" value="8561"/>-->
+<!--        <classes>-->
+<!--            <class name="test.authen.LoginTest"/>-->
+<!--        </classes>-->
+<!--    </test>-->
     <test name="Test_04" parallel="tests" thread-count="10">
         <parameter name="platformName" value="ios"/>
         <parameter name="udid" value="iPhone 13"/>

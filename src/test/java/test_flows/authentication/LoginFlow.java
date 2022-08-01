@@ -74,10 +74,10 @@ public class LoginFlow extends BaseFlow {
     private void verifyCorrectLoginCreds(LoginSuccessDialogComponent loginSuccessDialogComponent) {
         // TODO: Homework;
         WebDriverWait wait = new WebDriverWait(appiumDriver, 5L);
-        wait.until(ExpectedConditions.visibilityOf(loginSuccessDialogComponent.loginSuccessTxtElem()));
+        wait.until(ExpectedConditions.visibilityOf(loginSuccessDialogComponent.msgTitleElem));
 
         String actualLoginSuccessTxtStr = loginSuccessDialogComponent.getLoginSuccessTxtStr();
-        String expectedLoginSuccessTxtStr = "You are logged in!";
+        String expectedLoginSuccessTxtStr = "Success";
 
         // Verification
         SoftAssert softAssert = new SoftAssert();
